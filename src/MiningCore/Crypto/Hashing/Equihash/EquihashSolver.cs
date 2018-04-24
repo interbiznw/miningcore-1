@@ -81,7 +81,7 @@ namespace MiningCore.Crypto.Hashing.Equihash
                     fixed(byte *s = solution)
                     {
                         bool old_verified = LibMultihash.equihash_verify_old(h, s);
-                        bool new_verified = LibEquihashVerifyNew.equihash_verify_new(h, h.length, s, s.length);
+                        bool new_verified = LibEquihashVerifyNew.equihash_verify_new(h, header.Length, s, solution.Length);
 
                         if(old_verified != new_verified) {
                             // TODO make this more verbose
